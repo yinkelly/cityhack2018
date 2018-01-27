@@ -1,0 +1,95 @@
+{
+  "id": "locations",
+  "type": "circle",
+  "source": {
+    "type": "geojson",
+    "data": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "description": "Example description"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              0.004119873046875,
+              51.512909075833406
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              0.03124237060546875,
+              51.52529983831502
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              0.06162643432617187,
+              51.51792987720294
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -0.017852783203125,
+              51.5185707907351
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              0.010471343994140625,
+              51.52871738646354
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -0.018367767333984375,
+              51.51226808263225
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -0.0171661376953125,
+              51.53288217644661
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "paint": {
+    "circle-radius": 5,
+    "circle-color": "darkturquoise"
+  }
+}
