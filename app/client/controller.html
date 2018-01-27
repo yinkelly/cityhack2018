@@ -1,0 +1,13 @@
+<template name="Controller">
+  <div class="controller">
+    <h3>Data sources</h3>
+    <ul>
+      {{#each layers}}
+      <li>
+        <input type="checkbox" id="{{name}}" name="{{name}}" value="{{name}}" {{checked}}>
+        <label for="{{name}}">{{label}}</label>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
