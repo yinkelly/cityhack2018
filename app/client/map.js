@@ -54,10 +54,32 @@ Template.Map.onRendered(function mapOnRendered() {
             "type": "geojson",
             "data": result.data
           },
-          'layout': {},
+          'layout': {
+            'visibility': 'visible'
+          },
           'paint': {
               'fill-color': '#088',
               'fill-opacity': 0.8
+          }
+      });
+    });
+
+    // Load TFL data, add to map
+    HTTP.get(Meteor.absoluteUrl("/gla.json"), function(err,result) {
+      console.log('Adding gla layer');
+      map.addLayer({
+          "id": "gla-layer",
+          "type": "circle",
+          "source": {
+            "type": "geojson",
+            "data": result.data
+          },
+          'layout': {
+            'visibility': 'visible'
+          },
+          'paint': {
+              'circle-color': '#088',
+              'circle-opacity': 0.8
           }
       });
     });
@@ -103,6 +125,17 @@ Template.Map.onRendered(function mapOnRendered() {
     map.on('mouseleave', 'tfl-layer', function() {
         map.getCanvas().style.cursor = '';
         popup.remove();
+    });
+
+
+    // Rerun when visibility changes
+    let visibleLayers;
+    this.autorun(() => {
+      console.log('autorun');
+      visibleLayers = Session.get('visibleLayers');
+      visibleLayers.forEach((layer) => {
+          map.setLayoutProperty(`${layer.name}-layer`, 'visibility', layer.isVisible ? "visible":"none")
+      });
     });
 
   });

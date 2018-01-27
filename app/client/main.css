@@ -3,6 +3,8 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
+  font-family: Din Pro, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: dimgrey;
 }
 
 #map {
@@ -18,9 +20,25 @@ body {
 
 ul {
   list-style: none;
+  padding-left: 10px;
 }
 
 li span {
   /* font-size: 0.9em; */
   opacity: 0.8;
+}
+
+label {
+  padding-left: 4px;
+}
+
+.controller {
+  z-index: 2;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: white;
+  opacity: 0.8;
+  border-radius: 4px;
+  padding: 5px 25px;
 }

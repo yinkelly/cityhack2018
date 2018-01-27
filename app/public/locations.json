@@ -88,6 +88,9 @@
       ]
     }
   },
+  "layout": {
+    "visibility": "visible"
+  },
   "paint": {
     "circle-radius": 5,
     "circle-color": "darkturquoise"
