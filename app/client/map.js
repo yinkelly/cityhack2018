@@ -5,10 +5,10 @@ import { HTTP } from "meteor/http";
 import "./map.html";
 
 const GLA_URL = "https://maps.london.gov.uk/gla/rest/services/apps/CityHack_aecom_Jan18_project_service01/MapServer/0/1";
-const GLA_TOKEN = "";
+const GLA_TOKEN = Meteor.settings.public.GLA_TOKEN;
 
 const ROUTE_URL = "https://api.mapbox.com/directions/v5/"; //"{profile}/{coordinates}"
-const MAPBOX_TOKEN = "";
+const MAPBOX_TOKEN = Meteor.settings.public.MAPBOX_TOKEN;
 
 const PROFILE = "mapbox/walking";
 const COORDINATES = "0.059,51.564;-0.173,51.428";
