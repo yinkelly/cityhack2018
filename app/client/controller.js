@@ -13,12 +13,12 @@ const LAYERS = [{
   name: 'gla',
   label: 'GLA',
   isVisible: true,
-  file: 'gla.json'
+  file: 'gla-paths.json'
 }, {
   name: 'borough',
   label: 'Borough',
   isVisible: true,
-  file: ''
+  file: 'locations.json'
 }];
 
 Session.setDefault('visibleLayers', LAYERS);
