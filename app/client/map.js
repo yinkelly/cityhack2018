@@ -4,9 +4,6 @@ import { HTTP } from "meteor/http";
 
 import "./map.html";
 
-const GLA_URL = "https://maps.london.gov.uk/gla/rest/services/apps/CityHack_aecom_Jan18_project_service01/MapServer/0/1";
-const GLA_TOKEN = Meteor.settings.public.GLA_TOKEN;
-
 const ROUTE_URL = "https://api.mapbox.com/directions/v5/"; //"{profile}/{coordinates}"
 const MAPBOX_TOKEN = Meteor.settings.public.MAPBOX_TOKEN;
 
@@ -16,14 +13,6 @@ const COORDINATES = "0.059,51.564;-0.173,51.428";
 Template.Map.onCreated(function mapOnCreated() {
   // counter starts at 0
   this.counter = new ReactiveVar(0);
-
-  HTTP.call("GET", GLA_URL, {
-    params:{"f":"json", "token": GLA_TOKEN}
-  }, (error, result) => {
-    if (!error) {
-      console.log(JSON.parse(result.content));
-    }
-  });
 
   HTTP.call("GET", `${ROUTE_URL}${PROFILE}/${COORDINATES}?access_token=${MAPBOX_TOKEN}`, (error, result) => {
     if (!error) {
@@ -64,12 +53,12 @@ Template.Map.onRendered(function mapOnRendered() {
       });
     });
 
-    // Load TFL data, add to map
-    HTTP.get(Meteor.absoluteUrl("/gla.json"), function(err,result) {
+    // Load GLA data, add to map
+    HTTP.get(Meteor.absoluteUrl("/gla-paths.json"), function(err,result) {
       console.log('Adding gla layer');
       map.addLayer({
           "id": "gla-layer",
-          "type": "circle",
+          "type": "line",
           "source": {
             "type": "geojson",
             "data": result.data
@@ -78,8 +67,8 @@ Template.Map.onRendered(function mapOnRendered() {
             'visibility': 'visible'
           },
           'paint': {
-              'circle-color': '#088',
-              'circle-opacity': 0.8
+              'line-color': '#088',
+              'line-opacity': 0.8
           }
       });
     });
